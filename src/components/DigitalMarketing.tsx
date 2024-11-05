@@ -66,7 +66,7 @@ export default function DigitalMarketing() {
               <div className="w-[50%] flex flex-col justify-center ">
                 <p className="text-[0.95vw] font-Inter font-medium flex justify-center items-center">
                   Aptonworks (Digital Solutions Provider):- One of the most
-                  impactful decisions we've made is transforming into an
+                  impactful decisions we&apos;ve made is transforming into an
                   AI-powered agency, thanks to Gainwix.ai. Their platform has
                   truly elevated our capabilities, boosting our growth rate and
                   customer satisfaction by an impressive 37%. Not only has this
@@ -75,6 +75,7 @@ export default function DigitalMarketing() {
                   clients appreciate. Gainwix.ai has been a game-changer for our
                   agency.
                 </p>
+
                 <span className="text-[3vw] mt-5 font-Inter font-medium">
                   Christo
                 </span>
@@ -94,8 +95,8 @@ export default function DigitalMarketing() {
             <div className="p-10 w-[100%] flex fle-row  justify-center">
               <div className="w-[50%] flex flex-col justify-center ">
                 <p className="text-[0.95vw] font-Inter font-medium flex justify-center items-center">
-                  Aptonworks (Digital Solutions Provider):- One of the most
-                  impactful decisions we've made is transforming into an
+                  Aptonworks (Digital Solutions Provider):&nbsp;One of the most
+                  impactful decisions we&apos;ve made is transforming into an
                   AI-powered agency, thanks to Gainwix.ai. Their platform has
                   truly elevated our capabilities, boosting our growth rate and
                   customer satisfaction by an impressive 37%. Not only has this
@@ -104,6 +105,7 @@ export default function DigitalMarketing() {
                   clients appreciate. Gainwix.ai has been a game-changer for our
                   agency.
                 </p>
+
                 <span className="text-[3vw] mt-5 font-Inter font-medium">
                   Christo
                 </span>
@@ -123,8 +125,8 @@ export default function DigitalMarketing() {
             <div className="p-10 w-[100%] flex fle-row  justify-center">
               <div className="w-[50%] flex flex-col justify-center ">
                 <p className="text-[0.95vw] font-Inter font-medium flex justify-center items-center">
-                  Aptonworks (Digital Solutions Provider):- One of the most
-                  impactful decisions we've made is transforming into an
+                  Aptonworks (Digital Solutions Provider):&nbsp;One of the most
+                  impactful decisions we&apos;ve made is transforming into an
                   AI-powered agency, thanks to Gainwix.ai. Their platform has
                   truly elevated our capabilities, boosting our growth rate and
                   customer satisfaction by an impressive 37%. Not only has this

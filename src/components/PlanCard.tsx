@@ -10,10 +10,10 @@ import magnum from "@icons/meganum.svg";
 // import "./usagePlan.css";
 
 export default function PlanCard() {
-  const [isUpgrade, setIsUpgrade] = useState(false);
+  // const [isUpgrade, setIsUpgrade] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState("Monthly");
 
-  const handleCancelUpgradePlans = () => setIsUpgrade(false);
+  // const handleCancelUpgradePlans = () => setIsUpgrade(false);
 
   const PlansCard = ({ plan }: { plan: string }) => {
     return (

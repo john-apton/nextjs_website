@@ -34,10 +34,10 @@ export default function Growth() {
     }
 
     return () => {
-      if (earthRef.current) {
-        earthRef.current.removeEventListener("mouseenter", handleMouseEnter);
-        earthRef.current.removeEventListener("mouseleave", handleMouseLeave);
-      }
+      // if (earthRef.current) {
+      //   earthRef.current.removeEventListener("mouseenter", handleMouseEnter);
+      //   earthRef.current.removeEventListener("mouseleave", handleMouseLeave);
+      // }
     };
   }, []);
 

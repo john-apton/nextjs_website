@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { MutableRefObject } from "react";
 
 import Video from "@icons/Strategy--giff.gif";
 import Video1 from "@icons/SegementVideo.gif";
@@ -10,7 +11,7 @@ import Header from "@icons/header.gif";
 import MetaIcon from "@icons/meta.svg";
 import MainImage from "@icons/homelcon.svg";
 
-import LightBackGround from "@icons/light.svg";
+// import LightBackGround from "@icons/light.svg";
 import HomePage from "@icons/HomePage.svg";
 import Marketing_first from "@icons/Strategy Animation.svg";
 import SegmentAnimation from "@icons/Segment Animation.svg";
@@ -57,9 +58,9 @@ export const MarketingGoalsList = [
 export default function Home() {
   const imageRef = useRef(null);
 
-  const divRef = useRef(null);
-  const goalsRef = useRef(null);
-  const imageContainerRef = useRef(null); // Reference for the image container
+  const divRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
+  const goalsRef = useRef<HTMLDivElement | null>(null);
+  const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.to(imageRef.current, {
@@ -77,35 +78,36 @@ export default function Home() {
       const goalsPosition =
         goalsRef.current.getBoundingClientRect().top + window.scrollY;
 
-      // Get the position of the image container
       const imageContainerPosition =
         imageContainerRef.current.getBoundingClientRect().top + window.scrollY;
 
-      // Adjust the position to focus on the left side of the image
       const leftOffset = imageContainerRef.current.offsetWidth / 2;
 
-      // Animate to the Goals section on initial scroll
       gsap.to(divRef.current, {
         y: goalsPosition - divRef.current.offsetHeight / 2,
         duration: 1,
         scrollTrigger: {
           trigger: goalsRef.current,
-          start: "top center", // When the top of the Goals component hits the center of the viewport
-          end: "bottom center", // When the bottom of the Goals component hits the center of the viewport
+          start: "top center",
+          end: "bottom center",
           scrub: true,
           onLeave: () => {
-            gsap.to(divRef.current, {
-              y: imageContainerPosition - divRef.current.offsetHeight / 2,
-              x: -leftOffset,
-              duration: 1,
-            });
+            if (divRef.current) {
+              gsap.to(divRef.current, {
+                y: imageContainerPosition - divRef.current.offsetHeight / 2,
+                x: -leftOffset,
+                duration: 1,
+              });
+            }
           },
           onEnterBack: () => {
-            gsap.to(divRef.current, {
-              y: goalsPosition - divRef.current.offsetHeight / 2,
-              x: 0, // Reset horizontal position
-              duration: 1,
-            });
+            if (divRef.current) {
+              gsap.to(divRef.current, {
+                y: goalsPosition - divRef.current.offsetHeight / 2,
+                x: 0,
+                duration: 1,
+              });
+            }
           },
         },
       });
@@ -181,7 +183,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center">
           <div className="flex justify-center text-[3vw] font-medium font-Sora absolute top-4">
             <h1 className="text-[3vw] font-medium font-Sora text-[#FFFFFF] pt-16">
-              <p className="pl-10">Integrate the "3 S" AI in your </p>
+              <p className="pl-10">Integrate the &quot;3 S&quot; AI in your </p>
               <span className="from-[#8C76F7] via-[#8C76F7] to-[#F9AD68] bg-gradient-to-r bg-clip-text text-transparent pl-32">
                 digital marketing
               </span>
@@ -215,7 +217,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <div className="relative flex flex-row">
+      <div className="relative flex flex-row">
         <Image src={Segmentation} alt="" />
 
         <div className="w-[100%] flex flex-row px-40 absolute top-10">
@@ -261,45 +263,44 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div> */}
+      </div>
       {/* Slider Section */}
+      <DigitalMarketing />
+      <div className="py-10">
+        <BrandScroll />
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <div className="flex justify-center text-[3vw] font-medium font-Sora ">
+          <h1 className="text-[3vw] font-Sora font-medium text-[#FFFFFF] py-16">
+            <p className="pl-10 font-Sora">
+              The 3 S AI stabilizes your marketing goal{" "}
+            </p>{" "}
+            <span className="from-[#8C76F7] via-[#8C76F7] to-[#F9AD68] bg-gradient-to-r bg-clip-text text-transparent pl-36">
+              And increase performance all time.{" "}
+            </span>
+          </h1>
+        </div>
+
+        <div className="w-full flex flex-row gap-10 justify-center">
+          {MarketingGoalsList?.map((data) => (
+            <div className="w-[25%] h-[45vh] rounded-lg from-[#0A0D2A] via-[#0A0D2A] to-[#2D3154] bg-gradient-to-r " key={data?.id}>
+              <div className="flex-col text-white w-full flex items-center justify-center text-[1.2vw] mt-[10vw]">
+                <p className="font-Sora font-semibold">{data?.content}</p>
+                <span className=" font-Sora font-semibold">
+                  {data?.content1}
+                </span>
+
+                <p className="w-auto min-w-10 text-[0.95vw] px-10 py-5 flex justify-center  font-Sora items-center text-center font-medium ">
+                  {data?.details}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Growth */}
+      </div>
+      <Growth />
     </div>
   );
 }
-//  <DigitalMarketing />
-//       <div className="py-10">
-//         <BrandScroll />
-//       </div>
-//       <div className="flex flex-col items-center justify-center">
-//         <div className="flex justify-center text-[3vw] font-medium font-Sora ">
-//           <h1 className="text-[3vw] font-Sora font-medium text-[#FFFFFF] py-16">
-//             <p className="pl-10 font-Sora">
-//               The 3 S AI stabilizes your marketing goal{" "}
-//             </p>{" "}
-//             <span className="from-[#8C76F7] via-[#8C76F7] to-[#F9AD68] bg-gradient-to-r bg-clip-text text-transparent pl-36">
-//               And increase performance all time.{" "}
-//             </span>
-//           </h1>
-//         </div>
-
-//         <div className="w-full flex flex-row gap-10 justify-center">
-//           {MarketingGoalsList?.map((data) => (
-//             <div className="w-[25%] h-[45vh] rounded-lg from-[#0A0D2A] via-[#0A0D2A] to-[#2D3154] bg-gradient-to-r ">
-//               <div className="flex-col text-white w-full flex items-center justify-center text-[1.2vw] mt-[10vw]">
-//                 <p className="font-Sora font-semibold">{data?.content}</p>
-//                 <span className=" font-Sora font-semibold">
-//                   {data?.content1}
-//                 </span>
-
-//                 <p className="w-auto min-w-10 text-[0.95vw] px-10 py-5 flex justify-center  font-Sora items-center text-center font-medium ">
-//                   {data?.details}
-//                 </p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Growth */}
-//       </div>
-//       <Growth />
-//     </div>

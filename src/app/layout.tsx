@@ -3,7 +3,6 @@ import "./globals.css";
 import { cn } from "@helpers/cn";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Inter } from "next/font/google";
 
 // import localFont from 'next/font/local';
 // const sora = localFont({
@@ -12,9 +11,9 @@ import { Inter } from "next/font/google";
 //   weight: '100 900',
 // });
 
-const inter = Inter({
-  subsets: ["latin"], // Add other subsets if necessary
-});
+// const inter = Inter({
+//   subsets: ["latin"], // Add other subsets if necessary
+// });
 
 export const metadata: Metadata = {
   title: "GainWix.AI",

@@ -14,6 +14,28 @@ const PricingCard = () => {
     setSelectedOption(option);
   };
 
+  interface SubtitleData {
+    id: number;
+    name: string;
+    content?: string;
+    icon?: string;
+    lifeTime?: string;
+    limit?: string;
+    number?: string;
+    speed?: string;
+    icon2?: string;
+    lifeTime1?: string;
+    limit1?: string;
+    number1?: string;
+    speed1?: string;
+    icon3?: string;
+    lifeTime2?: string;
+    limit2?: string;
+    number2?: string;
+    speed2?: string;
+    speed3?: string;
+  }
+
   return (
     <div className="w-full relative">
       <div className="w-full align-center flex flex-col justify-center text-center">
@@ -32,7 +54,7 @@ const PricingCard = () => {
       <div className=" w-full h-[17vh] flex md:flex-row items-center md:my-16 sticky top-[5rem]  backdrop-blur-xl xs:flex-col xs:p-6 xs:my-6 xs:gap-10 md:gap-0">
         <div className="md:w-[30%] h-full flex flex-row justify-center items-center md:border-b border-b-[#2D3154] xs:w-full">
           <div className="bg-[] flex flex-row gap-5 justify-center items-center p-[0.6vw] rounded-[46px] w-[60%] border border-[#4A2DAA]">
-            {["monthly", "yearly"].map((option: any) => (
+            {["monthly", "yearly"].map((option: string) => (
               <p
                 key={option}
                 onClick={() => handleClick(option)}
@@ -103,8 +125,11 @@ const PricingCard = () => {
             </div>
 
             <div className=" flex flex-col">
-              {data?.subtitle?.map((data: any) => (
-                <div className="flex md:flex-row w-[100%] border-b border-b-[#2D3154] xs:flex-col xs:items-center xs:gap-3 md:gap-0 xs:py-3 md:p-0">
+              {data?.subtitle?.map((data: SubtitleData) => (
+                <div
+                  className="flex md:flex-row w-[100%] border-b border-b-[#2D3154] xs:flex-col xs:items-center xs:gap-3 md:gap-0 xs:py-3 md:p-0"
+                  key={data?.id}
+                >
                   <div className="md:w-[40%] flex flex-row p-[1.2vw] xs:justify-center md:justify-start xs:w-[100%]">
                     <p className="md:text-[0.85vw]  font-Inter font-medium text-[white] md:pl-[1.8rem] xs:text-[2.2vw] ">
                       {data?.name}

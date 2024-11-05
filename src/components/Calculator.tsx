@@ -7,10 +7,15 @@ import React, { useEffect, useState } from "react";
 
 import DotIcon from "@icons/dot.svg";
 
+interface ContactItem {
+  id: number;
+  value: string;
+}
+
 const PricingCalculator = () => {
-  const [Country, setCountry] = useState("");
-  const [visible, setVisible] = useState(false);
-  const [planOpen, setPlanOpen] = useState(null);
+  // const [Country, setCountry] = useState("");
+  // const [visible, setVisible] = useState(false);
+  const [planOpen, setPlanOpen] = useState<null | ContactItem>(null);
   const [open, setOpen] = useState(false);
   const [Initiated, setInitiated] = useState(0);
   const [marketingCount, setMarketingCount] = useState(0);
@@ -19,9 +24,9 @@ const PricingCalculator = () => {
   const [total, setTotal] = useState(0);
   const [totalConversationCost, setTotalConversationCost] = useState(0);
 
-  const handleVisibleClick = () => {
-    setVisible(!visible);
-  };
+  // const handleVisibleClick = () => {
+  //   setVisible(!visible);
+  // };
 
   const handlePlanChange = () => {
     setOpen(!open);
@@ -35,34 +40,34 @@ const PricingCalculator = () => {
   };
 
   const handleInitiatedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInitiated(Number(e.target.value)); // Convert the string to a number
+    setInitiated(Number(e.target.value));
   };
 
-  const ContactData = ({ setContactList }) => {
-    const handleClick = (item: any) => {
-      setCountry(item?.value);
-      setVisible(false);
-    };
+  // const ContactData = ({ setContactList }) => {
+  //   const handleClick = (item: any) => {
+  //     setCountry(item?.value);
+  //     setVisible(false);
+  //   };
 
-    return (
-      <div className="filter pointer overflow-auto listScroll">
-        {setContactList?.map((item: any) => (
-          <div
-            className="flex-row w-100 align-center py-2 h-auto min-h-[5vh] overflow-scroll"
-            key={item.id}
-            onClick={() => handleClick(item)}
-            style={{
-              borderBottom: item?.id === 7 ? "none" : "1px solid #E8E8EA",
-            }}
-          >
-            <p className="pl-2 py-2 rounded-lg category-content hover:bg-[#FBFBFB] text-[0.75vw] font-bold">
-              {item.value}
-            </p>
-          </div>
-        ))}
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="filter pointer overflow-auto listScroll">
+  //       {setContactList?.map((item: any) => (
+  //         <div
+  //           className="flex-row w-100 align-center py-2 h-auto min-h-[5vh] overflow-scroll"
+  //           key={item.id}
+  //           onClick={() => handleClick(item)}
+  //           style={{
+  //             borderBottom: item?.id === 7 ? "none" : "1px solid #E8E8EA",
+  //           }}
+  //         >
+  //           <p className="pl-2 py-2 rounded-lg category-content hover:bg-[#FBFBFB] text-[0.75vw] font-bold">
+  //             {item.value}
+  //           </p>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   );
+  // };
 
   useEffect(() => {
     const ConversationCount = result + total;
@@ -83,15 +88,17 @@ const PricingCalculator = () => {
     setTotal(InitiatedCountCost);
   };
 
-  const PlanData = ({ setContactList }) => {
-    const handlePlanClick = (item: any) => {
+  const PlanData: React.FC<{ setContactList: ContactItem[] }> = ({
+    setContactList,
+  }) => {
+    const handlePlanClick = (item: ContactItem) => {
       setPlanOpen(item);
       setOpen(false);
     };
 
     return (
       <div className="filter pointer overflow-auto listScroll">
-        {setContactList?.map((item: any) => (
+        {setContactList?.map((item: ContactItem) => (
           <div
             className="flex-row w-100 align-center py-2 h-auto min-h-[5vh] overflow-scroll"
             key={item.id}
@@ -165,7 +172,9 @@ const PricingCalculator = () => {
                   >
                     <div className="flex flex-row justify-between pointer w-[25vw] px-3 py-2 mt-4 border border-[#2D3154] outline-none rounded-[8px]  cursor-pointer">
                       <p className="xs:text-[1.3vw] md:text-[0.75vw] font-Inter  font-medium text-[white]">
-                        {planOpen ? planOpen?.value : "Select a plan"}
+                        {planOpen
+                          ? (planOpen as { value: string })?.value
+                          : "Select a plan"}
                       </p>
                       {/* <img
                         src={ICONS.BroadcastChevronDownIcon}
@@ -237,10 +246,12 @@ const PricingCalculator = () => {
                   </p>
                   <div className="flex flex-row px-14 py-3 justify-between align-center items-center border-b-2">
                     <p className="text-[white] text-[0.85vw] font-semibold">
-                      {planOpen ? planOpen.value : "***"}
+                      {planOpen ? (planOpen as { value: string }).value : "***"}
                     </p>
                     <p className="text-[1.3vw] font-bold text-[white]">
-                      {planOpen ? planOpen.cost : "***"}
+                      {planOpen
+                        ? (planOpen as unknown as { cost: string }).cost
+                        : "*** "}
                     </p>
                   </div>
                   <p className="flex justify-center p-4 xs:text-[1.3vw] md:text-[1vw] font-Sora font-bold text-[#D4D4D4]">

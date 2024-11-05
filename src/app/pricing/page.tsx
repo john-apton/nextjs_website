@@ -3,9 +3,8 @@ import PricingCard from "@components/PricingCard";
 import Calculator from "@components/Calculator";
 
 import Growth from "@components/Growth";
-import { PricingCardList, pricing } from "@constants/home"; 
+import { PricingCardList } from "@constants/home"; 
 import Image from "next/image";
-import { useState } from "react";
 import PlanCard from "@components/PlanCard";
 import DigitalMarketing from "@components/DigitalMarketing";
 import BrandScroll from "@components/BrandScroll";
