@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import FullLogo from "@logos/full-logo.svg";
+import FullLogo from "@Logos/full-logo.svg";
 import { cn } from "@helpers/cn";
 import Link from "next/link";
 

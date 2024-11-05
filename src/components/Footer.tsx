@@ -1,7 +1,7 @@
 import { FOOTER_LINKS } from "@constants/footer";
 import Image from "next/image";
 import Link from "next/link";
-import FullLogo from "@logos/full-logo.svg";
+import FullLogo from "@Logos/full-logo.svg";
 import Facebook from "@custom-svg/Facebook";
 import Instagram from "@custom-svg/Instagram";
 import Linkedin from "@custom-svg/Linkedin";
