@@ -24,7 +24,7 @@
       "@constants/*": ["src/constants/*"],
       "@icons/*": ["src/assets/Icons/*"],
       // "@images/*": ["src/assets/images/*"],
-      "@logos/*": ["src/assets/Logos/*"],
+      "@logos/*": ["src/assets/logos/*"],
       "@custom-svg/*": ["src/assets/custom-svg/*"],
       "@/*": ["src/*"]
     }
