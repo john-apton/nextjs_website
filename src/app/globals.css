@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn {
+    width: auto;
+    height: 3rem;
+    padding: 3px 1.25rem;
+    border: 1px solid #6940f2;
+    border-radius: 65px;
+    color: #fff;
+    transition: all 0.3s linear;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Inter";
+  }
+  .getButton {
+    width: auto;
+    min-width: 15vw !important;
+    height: 3rem;
+    padding: 3px 1.25rem;
+    border: 1px solid #6940f2;
+    border-radius: 65px;
+    color: #fff;
+    transition: all 0.3s linear;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "inter";
+
+    margin: auto;
+  }
+
+  .get_button {
+    background-color: #6940f2;
+  }
+  .btn_primary {
+    background: #4a2daa;
+    border: 1px solid;
+    border-image-source: linear-gradient(
+      180deg,
+      #6940f2 0%,
+      rgba(105, 64, 242, 0) 50.91%
+    );
+  }
+
+  .btn_secondary {
+    color: #fff;
+    background: linear-gradient(0deg, #000413, #000413),
+      radial-gradient(
+        99.76% 99.76% at 98.11% 50%,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.116) 100%
+      );
+  }
+
+  .btn:hover {
+    box-shadow: 0px 0px 12px 6px #430bfe69;
+  }
+
+  .gradient-border {
+    border-top-width: 1.5px;
+    border-style: solid;
+    border-image-source: linear-gradient(
+      270deg,
+      rgba(1, 4, 22, 0) 0%,
+      #2d3154 44%,
+      rgba(1, 4, 22, 0) 100%
+    );
+    border-image-slice: 1; /* Needed to apply the gradient correctly */
+  }
+
+  [class^="number-slide"],
+  [class*=" number-slide"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 500;
+    height: auto;
+    max-height: 70vh;
+  }
+
+  .number-slide1 > div {
+    /* border: 1px solid red; */
+    width: 60vw !important;
+    height: 50vh;
+    border-radius: 22px;
+  }
+
+  .number-slide2 {
+    width: 60vw !important;
+    height: 50vh;
+    border-radius: 22px;
+  }
+
+  .number-slide3 {
+    background: rgb(182, 255, 64);
+    background: linear-gradient(
+      128deg,
+      rgba(182, 255, 64, 1) 0%,
+      rgba(63, 255, 71, 1) 100%
+    );
+    background: linear-gradient(
+      128deg,
+      rgba(189, 255, 83, 1) 0%,
+      rgba(43, 250, 82, 1) 100%
+    );
+  }
+
+  .blend-screen {
+    mix-blend-mode: screen;
+  }
+  .image-container {
+    width: 100%; /* Adjust to your needs */
+    height: auto; /* Ensure it adapts to image height */
+    position: relative; /* For absolute positioning of inner elements */
+  }
+
+  .image {
+    width: 100%; /* Full width of container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .video-image {
+    position: absolute;
+    left: 50%; /* Center the video */
+    transform: translateX(-50%); /* Center adjustment */
+    /* Additional styles */
+  }
+
+  /* ul {
+    position: relative;
+    display: flex;
+  }
+  ul li {
+    position: relative;
+    list-style: none;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background:var(--clr);
+  } */
+}
+
+@font-face {
+  font-family: "sora";
+  src: url("../assets/fonts/sora.ttf");
+}
+
+@font-face {
+  font-family: "inter";
+  src: url("../assets/fonts/inter.ttf");
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+}
