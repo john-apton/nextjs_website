@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { MutableRefObject } from "react";
 
-import Video from "@icons/Strategy--giff.gif";
 import Video1 from "@icons/SegementVideo.gif";
+
+import Video from "@icons/Strategy--giff.gif";
 
 import Header from "@icons/header.gif";
 
@@ -283,7 +284,10 @@ export default function Home() {
 
         <div className="w-full flex flex-row gap-10 justify-center">
           {MarketingGoalsList?.map((data) => (
-            <div className="w-[25%] h-[45vh] rounded-lg from-[#0A0D2A] via-[#0A0D2A] to-[#2D3154] bg-gradient-to-r " key={data?.id}>
+            <div
+              className="w-[25%] h-[45vh] rounded-lg from-[#0A0D2A] via-[#0A0D2A] to-[#2D3154] bg-gradient-to-r "
+              key={data?.id}
+            >
               <div className="flex-col text-white w-full flex items-center justify-center text-[1.2vw] mt-[10vw]">
                 <p className="font-Sora font-semibold">{data?.content}</p>
                 <span className=" font-Sora font-semibold">
